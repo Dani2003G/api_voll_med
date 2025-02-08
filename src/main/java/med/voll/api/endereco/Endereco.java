@@ -1,9 +1,13 @@
 package med.voll.api.endereco;
 
 import jakarta.persistence.Embeddable;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import med.voll.api.medico.DadosAtualizacaoMedico;
+
+import java.util.Objects;
 
 @Getter
 @Embeddable
@@ -33,6 +37,30 @@ public class Endereco {
         this.complemento = dados.complemento();
         this.cidade = dados.cidade();
         this.uf = dados.uf();
+    }
+
+    public void atualizarInformacoes(DadosEndereco dados) {
+        if (Objects.nonNull(dados.logradouro())) {
+            this.logradouro = dados.logradouro();
+        }
+        if (Objects.nonNull(dados.bairro())) {
+            this.bairro = dados.bairro();
+        }
+        if (Objects.nonNull(dados.cep())) {
+            this.cep = dados.cep();
+        }
+        if (Objects.nonNull(dados.numero())) {
+            this.numero = dados.numero();
+        }
+        if (Objects.nonNull(dados.complemento())) {
+            this.complemento = dados.complemento();
+        }
+        if (Objects.nonNull(dados.cidade())) {
+            this.cidade = dados.cidade();
+        }
+        if (Objects.nonNull(dados.uf())) {
+            this.uf = dados.uf();
+        }
     }
 }
 
